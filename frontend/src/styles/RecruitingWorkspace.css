@@ -1,0 +1,881 @@
+.recruiting-workspace {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 10px;
+  color: #fff;
+  overflow-y: auto;
+}
+
+.workspace-content {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.browser-section {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.browser-header {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.browser-label {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.browser-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.browser-tab {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.browser-tab:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.browser-tab.active {
+  background: rgba(33, 150, 243, 0.1);
+  color: #2196F3;
+}
+
+.browser-content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.researching-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.researching-indicator::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 50%;
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+.sequence-section {
+  height: 100%;
+}
+
+.sequence-section h2 {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 24px;
+}
+
+.sequence-content {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.sequence-header {
+  margin-bottom: 24px;
+}
+
+.sequence-header h3 {
+  color: #4a9eff;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.sequence-description {
+  color: #ccc;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.sequence-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sequence-step {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.step-number {
+  background: #4a9eff;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.step-title {
+  color: #fff;
+  font-size: 18px;
+  margin: 0;
+}
+
+.step-description {
+  color: #ccc;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 15px;
+}
+
+.empty-sequence {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  color: #999;
+  font-size: 16px;
+  text-align: center;
+  padding: 20px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Custom Scrollbar */
+.browser-content::-webkit-scrollbar,
+.sequence-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.browser-content::-webkit-scrollbar-track,
+.sequence-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.browser-content::-webkit-scrollbar-thumb,
+.sequence-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.browser-content::-webkit-scrollbar-thumb:hover,
+.sequence-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .workspace-content {
+    flex-direction: column;
+  }
+
+  .browser-section,
+  .sequence-section {
+    flex: none;
+    min-height: 300px;
+  }
+
+  .recruiting-workspace {
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  .sequence-step {
+    padding: 12px;
+  }
+  
+  .step-title {
+    font-size: 16px;
+  }
+  
+  .step-description {
+    font-size: 14px;
+  }
+}
+
+.step-title-input {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 18px;
+  padding: 8px 12px;
+  margin: 0;
+  width: 100%;
+}
+
+.step-description-input {
+  width: 100%;
+  min-height: 100px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 15px;
+  padding: 12px;
+  margin: 12px 0;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.step-edit-controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-edit-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.step-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.edit-button,
+.save-button,
+.cancel-button,
+.done-button,
+.outreach-button {
+  padding: 8px 14px;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+  text-align: center;
+  display: inline-block;
+  height: 36px;
+  line-height: 20px;
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+.edit-button {
+  background: rgba(74, 158, 255, 0.1);
+  color: #4a9eff;
+}
+
+.save-button {
+  background: #4caf50;
+  color: white;
+}
+
+.cancel-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  opacity: 1;
+  visibility: visible;
+}
+
+.edit-button:hover,
+.save-button:hover,
+.cancel-button:hover,
+.done-button:hover,
+.outreach-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.step-title-input:focus,
+.step-description-input:focus {
+  outline: none;
+  border-color: #4a9eff;
+  box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.2);
+}
+
+.sequence-header-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.json-toggle-button {
+  background-color: #4a86e8;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.json-toggle-button:hover {
+  background-color: #3a76d8;
+}
+
+.json-editor-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.json-editor {
+  width: 100%;
+  min-height: 400px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  background-color: #f8f8f8;
+}
+
+.json-error {
+  color: #d32f2f;
+  background-color: rgba(211, 47, 47, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.json-editor-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Add styles for the done button and completed steps */
+.done-button {
+  background: rgba(39, 174, 96, 0.1);
+  color: #27ae60;
+}
+
+.done-button.done-active {
+  background: #27ae60;
+  color: white;
+}
+
+/* Style for completed steps */
+.step-done .step-title {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.step-done .step-description {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.step-done {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-left: 3px solid #27ae60;
+}
+
+.step-done .step-number {
+  background: #27ae60;
+}
+
+/* LinkedIn Button Styles */
+.linkedin-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background-color: #0077b5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.linkedin-button:hover {
+  background-color: #006097;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.linkedin-button:active {
+  background-color: #004b7c;
+  transform: translateY(0);
+}
+
+.linkedin-logo {
+  width: 18px;
+  height: 18px;
+  color: white;
+}
+
+/* Dark mode styling for LinkedIn button */
+.dark-mode .linkedin-button {
+  background-color: #0077b5;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .linkedin-button:hover {
+  background-color: #006097;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .linkedin-button:active {
+  background-color: #004b7c;
+}
+
+/* Remove old LinkedIn search styles */
+.linkedin-search-section {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.linkedin-search-section h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.linkedin-search-container {
+  display: flex;
+  gap: 10px;
+}
+
+.linkedin-search-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.linkedin-search-input:focus {
+  border-color: #0077b5;
+  box-shadow: 0 0 0 2px rgba(0, 119, 181, 0.2);
+}
+
+.linkedin-search-button {
+  padding: 10px 16px;
+  background-color: #0077b5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.linkedin-search-button:hover {
+  background-color: #006097;
+}
+
+.linkedin-search-button:active {
+  background-color: #004b7c;
+}
+
+/* Dark mode styles */
+.dark-mode .linkedin-search-section {
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+
+.dark-mode .linkedin-search-section h3 {
+  color: #e0e0e0;
+}
+
+.dark-mode .linkedin-search-input {
+  background-color: #333;
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+.dark-mode .linkedin-search-input:focus {
+  border-color: #0077b5;
+  box-shadow: 0 0 0 2px rgba(0, 119, 181, 0.3);
+}
+
+/* Add styles for LinkedIn search controls */
+.linkedin-search-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* LinkedIn dropdown styles */
+.linkedin-dropdown {
+  position: relative;
+}
+
+.linkedin-dropdown-toggle {
+  background-color: #0077b5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.linkedin-dropdown-toggle:hover {
+  background-color: #006097;
+}
+
+.linkedin-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 280px;
+  z-index: 1000;
+  overflow: hidden;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.linkedin-dropdown-header {
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #5e6c84;
+  background-color: #f4f5f7;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.linkedin-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #172b4d;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.linkedin-dropdown-item:hover {
+  background-color: #f6f8fa;
+}
+
+.linkedin-dropdown-item svg {
+  color: #5e6c84;
+  flex-shrink: 0;
+}
+
+.linkedin-history-item {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.linkedin-history-query {
+  font-weight: 500;
+  color: #172b4d;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.linkedin-history-time {
+  font-size: 12px;
+  color: #5e6c84;
+}
+
+.linkedin-empty-history {
+  padding: 16px;
+  text-align: center;
+  color: #5e6c84;
+  font-size: 13px;
+}
+
+/* Dark mode styles */
+.dark-mode .linkedin-button {
+  background-color: #0077b5;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .linkedin-button:hover {
+  background-color: #006097;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .linkedin-button:active {
+  background-color: #004b7c;
+}
+
+.dark-mode .linkedin-dropdown-toggle {
+  background-color: #0077b5;
+}
+
+.dark-mode .linkedin-dropdown-toggle:hover {
+  background-color: #006097;
+}
+
+.dark-mode .linkedin-dropdown-menu {
+  background-color: #2d2d2d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid #444;
+}
+
+.dark-mode .linkedin-dropdown-header {
+  background-color: #333;
+  color: #ccc;
+  border-bottom-color: #444;
+}
+
+.dark-mode .linkedin-dropdown-item {
+  color: #e0e0e0;
+}
+
+.dark-mode .linkedin-dropdown-item:hover {
+  background-color: #383838;
+}
+
+.dark-mode .linkedin-dropdown-item svg {
+  color: #aaa;
+}
+
+.dark-mode .linkedin-history-item {
+  border-bottom-color: #444;
+}
+
+.dark-mode .linkedin-history-query {
+  color: #e0e0e0;
+}
+
+.dark-mode .linkedin-history-time {
+  color: #aaa;
+}
+
+.dark-mode .linkedin-empty-history {
+  color: #aaa;
+}
+
+/* Add styles for the outreach button and modal */
+
+.outreach-button {
+  background-color: #6a5acd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-left: 0;
+  min-width: 160px;
+}
+
+.outreach-button:hover {
+  background-color: #5b4cbe;
+}
+
+.outreach-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.outreach-modal-content {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .outreach-modal-content {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.outreach-text {
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  padding: 16px;
+  margin: 16px 0;
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+  word-break: break-word;
+}
+
+.dark-mode .outreach-text {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+}
+
+.outreach-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.copy-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+  background-color: #3d8b40;
+}
+
+.close-button, .dismiss-button {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover, .dismiss-button:hover {
+  background-color: #e0e0e0;
+}
+
+.dark-mode .close-button, .dark-mode .dismiss-button {
+  background-color: #3a3a3a;
+  color: #f0f0f0;
+}
+
+.dark-mode .close-button:hover, .dark-mode .dismiss-button:hover {
+  background-color: #4a4a4a;
+}
+
+.outreach-message-preview {
+  background-color: rgba(106, 90, 205, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  border-left: 4px solid #6a5acd;
+  word-break: break-word;
+}
+
+.dark-mode .outreach-message-preview {
+  background-color: rgba(106, 90, 205, 0.2);
+  border-left-color: #6a5acd;
+}
+
+.outreach-message-preview h4 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #333;
+  font-size: 16px;
+  color: white
+}
+
+.outreach-preview-text {
+  background-color: white;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 0 0 16px 0;
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: auto;
+  word-break: break-word;
+  border: 1px solid rgba(106, 90, 205, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .outreach-preview-text {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border-color: rgba(106, 90, 205, 0.5);
+}
+
+.outreach-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+} 
