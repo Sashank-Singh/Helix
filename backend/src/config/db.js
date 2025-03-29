@@ -1,12 +1,14 @@
 const { Pool } = require('pg');
 const dotenv = require('dotenv');
+const path = require('path');
 
-dotenv.config();
+// Load environment variables from root directory
+dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
 
 // Create a new pool instance with connection details from environment variables
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: {
+  ssl: process.env.PGSSL === 'false' ? false : {
     rejectUnauthorized: false // Required for connecting to Neon DB
   }
 });

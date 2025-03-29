@@ -7,9 +7,10 @@ const OpenAI = require('openai');
 const authRoutes = require('./routes/auth');
 const http = require('http');
 const { Server } = require('socket.io');
+const path = require('path');
 
-// Load environment variables
-dotenv.config();
+// Load environment variables from root directory
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 const app = express();
 let port = process.env.PORT || 5500;
@@ -47,8 +48,8 @@ io.on('connection', (socket) => {
 function buildSequencePrompts(message, currentSequence) {
   const msgLC = message.toLowerCase();
   // Edit step branch has highest priority
-  if (msgLC.includes('edit step')) {
-    const stepNumberMatch = message.match(/edit step (\d+)/i);
+  if (msgLC.includes('edit step') || msgLC.includes('change step')) {
+    const stepNumberMatch = message.match(/(?:edit|change) step (\d+)/i);
     if (!stepNumberMatch) {
       return { error: "Please specify the step number to edit in your request." };
     }
@@ -187,7 +188,7 @@ app.post('/api/chat', async (req, res) => {
 
     // Call the OpenAI API with the constructed system and user prompts.
     const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: process.env.OPENAI_MODEL || "gpt-4o-mini" || "gpt-4o" || "gpt-3.5-turbo",
       messages: [
         { role: "system", content: systemPrompt },
         { role: "user", content: userPrompt }
@@ -302,7 +303,7 @@ app.post('/api/sequences/generate', async (req, res) => {
     const { prompt } = req.body;
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: process.env.OPENAI_MODEL || "gpt-4o-mini" || "gpt-4o" || "gpt-3.5-turbo",
       messages: [
         {
           role: "system",

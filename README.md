@@ -15,7 +15,7 @@ Helix is an AI-powered recruiting assistant that helps recruiters create persona
 - **Frontend**: React with TypeScript, styled-components
 - **Backend**: Flask (Python)
 - **Database**: PostgreSQL (via Neon DB)
-- **AI**: OpenAI GPT-4 Turbo via OpenRouter API
+- **AI**: OpenAI GPT-4
 
 ## Setup and Installation
 

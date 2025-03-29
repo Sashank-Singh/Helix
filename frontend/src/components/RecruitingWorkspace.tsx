@@ -195,8 +195,14 @@ const RecruitingWorkspace: React.FC<Props> = ({
       let skills: string[] = [];
       
       // Extract the job role from sequence title
-      if (sequence.title && sequence.title.trim()) {
-        jobRole = sequence.title.trim();
+      if (sequence.title) {
+        // Format job role for LinkedIn URL search - remove "Recruitment Process" 
+        // and prepare for URL encoding
+        jobRole = sequence.title
+          .replace(/\s*Recruitment\s*Process\s*$/i, '')
+          .trim()
+          .replace(/[^\w\s-]/g, '')  // Remove special characters except spaces and hyphens
+          .replace(/\s+/g, ' ');     // Convert spaces to + for URL format
       } 
       // If no title, try to extract from description
       else if (sequence.description && sequence.description.trim()) {
